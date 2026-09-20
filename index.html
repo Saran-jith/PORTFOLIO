@@ -1,1 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="AMX Appu — Gamer, HTML Developer and Creator">
+<title>AMX Appu | Gamer × Developer</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+
+html{
+    scroll-behavior:smooth
+}
+
+body{
+    background:#050507;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    overflow-x:hidden
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+    radial-gradient(circle at 15% 15%,#8b45ff20,transparent 28%),
+    radial-gradient(circle at 85% 65%,#00d9ff13,transparent 28%),
+    radial-gradient(circle at 50% 100%,#8b45ff0c,transparent 30%)
+}
+
+body:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    opacity:.22;
+    background-image:
+    linear-gradient(#ffffff06 1px,transparent 1px),
+    linear-gradient(90deg,#ffffff06 1px,transparent 1px);
+    background-size:50px 50px;
+    mask-image:linear-gradient(to bottom,black,transparent 80%)
+}
+
+a{
+    color:inherit;
+    text-decoration:none
+}
+
+button{
+    font:inherit
+}
+
+/* NAV */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:100;
+    background:#050507d9;
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #ffffff0c
+}
+
+.logo{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:1px
+}
+
+.logo span{
+    color:#a66cff
+}
+
+.nav-links{
+    display:flex;
+    gap:30px
+}
+
+.nav-links a{
+    color:#777;
+    font-size:13px;
+    transition:.2s
+}
+
+.nav-links a:hover{
+    color:#fff
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:none;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer
+}
+
+/* HERO */
+
+.hero{
+    min-height:100svh;
+    padding:150px 8% 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden
+}
+
+.hero-content{
+    max-width:800px;
+    position:relative;
+    z-index:2
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:9px 14px;
+    border:1px solid #ffffff12;
+    background:#ffffff06;
+    border-radius:30px;
+    color:#aaa;
+    font-size:12px;
+    margin-bottom:25px
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#4dff98;
+    box-shadow:0 0 14px #4dff98
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,105px);
+    line-height:.9;
+    letter-spacing:-6px
+}
+
+.hero h1 span{
+    color:#a66cff;
+    text-shadow:0 0 40px #a66cff55
+}
+
+.typing{
+    height:32px;
+    margin-top:27px;
+    font-size:20px;
+    color:#fff
+}
+
+.typing b{
+    color:#a66cff;
+    animation:blink .8s infinite
+}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+.hero-text{
+    max-width:620px;
+    margin:20px 0 30px;
+    color:#777;
+    line-height:1.8;
+    font-size:16px
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 21px;
+    border-radius:9px;
+    background:#a66cff;
+    border:1px solid #a66cff;
+    font-weight:bold;
+    transition:.25s
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 35px #a66cff35
+}
+
+.btn.secondary{
+    background:#ffffff05;
+    border-color:#ffffff15
+}
+
+.hero-glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    right:-80px;
+    top:25%;
+    border-radius:50%;
+    background:#873dff12;
+    filter:blur(35px)
+}
+
+.orbit{
+    position:absolute;
+    width:330px;
+    height:330px;
+    right:30px;
+    top:28%;
+    border:1px solid #a66cff16;
+    border-radius:50%;
+    animation:rotate 20s linear infinite
+}
+
+.orbit:before{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    top:30px;
+    left:70px;
+    border-radius:50%;
+    background:#a66cff;
+    box-shadow:0 0 20px #a66cff
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg)}
+}
+
+/* GENERAL */
+
+section{
+    padding:100px 8%
+}
+
+.label{
+    color:#a66cff;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:12px
+}
+
+.title{
+    font-size:42px;
+    letter-spacing:-2px;
+    margin-bottom:38px
+}
+
+.title span{
+    color:#a66cff
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:18px
+}
+
+.card{
+    background:#ffffff05;
+    border:1px solid #ffffff0d;
+    border-radius:18px;
+    padding:28px;
+    transition:.3s
+}
+
+.card:hover{
+    border-color:#a66cff38;
+    transform:translateY(-4px)
+}
+
+.about-text{
+    color:#888;
+    line-height:1.9
+}
+
+.about-text strong{
+    color:#fff
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:23px
+}
+
+.skill{
+    padding:9px 13px;
+    border-radius:8px;
+    background:#ffffff06;
+    border:1px solid #ffffff0c;
+    color:#aaa;
+    font-size:13px
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:30px
+}
+
+.stat{
+    text-align:center
+}
+
+.stat strong{
+    display:block;
+    font-size:28px;
+    color:#a66cff
+}
+
+.stat small{
+    color:#666
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px
+}
+
+.project{
+    min-height:235px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between
+}
+
+.project-number{
+    color:#555;
+    font-size:11px
+}
+
+.project-icon{
+    width:45px;
+    height:45px;
+    margin:20px 0;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:#a66cff12;
+    color:#bd9aff;
+    font-size:20px
+}
+
+.project p{
+    color:#777;
+    line-height:1.6;
+    font-size:14px;
+    margin-top:10px
+}
+
+.project-link{
+    color:#b99aff;
+    font-size:13px;
+    margin-top:20px
+}
+
+/* GITHUB */
+
+.github-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px
+}
+
+.github-profile{
+    display:flex;
+    align-items:center;
+    gap:18px
+}
+
+.github-avatar{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #a66cff55
+}
+
+.github-name{
+    font-size:20px
+}
+
+.github-user{
+    color:#777;
+    margin-top:5px;
+    font-size:13px
+}
+
+.github-bio{
+    color:#888;
+    line-height:1.7;
+    margin-top:20px
+}
+
+.github-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:25px
+}
+
+.github-stat{
+    background:#ffffff05;
+    border:1px solid #ffffff08;
+    border-radius:10px;
+    padding:15px;
+    text-align:center
+}
+
+.github-stat b{
+    display:block;
+    color:#a66cff;
+    font-size:22px
+}
+
+.github-stat span{
+    color:#666;
+    font-size:11px
+}
+
+.repo{
+    padding:18px;
+    margin-top:10px;
+    background:#ffffff04;
+    border:1px solid #ffffff09;
+    border-radius:12px;
+    transition:.2s
+}
+
+.repo:hover{
+    border-color:#a66cff40
+}
+
+.repo h3{
+    font-size:15px
+}
+
+.repo p{
+    color:#777;
+    font-size:12px;
+    line-height:1.5;
+    margin-top:7px
+}
+
+.repo small{
+    display:block;
+    color:#a66cff;
+    margin-top:10px
+}
+
+/* GAMING */
+
+.gaming{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px
+}
+
+.player{
+    display:flex;
+    align-items:center;
+    gap:18px
+}
+
+.avatar{
+    width:70px;
+    height:70px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#a66cff,#5e2bc8);
+    font-size:27px;
+    font-weight:bold;
+    box-shadow:0 0 35px #a66cff30
+}
+
+.player p{
+    color:#666;
+    font-size:13px;
+    margin-top:5px
+}
+
+.bar{
+    margin-top:25px
+}
+
+.bar-head{
+    display:flex;
+    justify-content:space-between;
+    color:#777;
+    font-size:12px;
+    margin-bottom:8px
+}
+
+.track{
+    height:6px;
+    background:#ffffff09;
+    border-radius:20px;
+    overflow:hidden
+}
+
+.fill{
+    width:0;
+    height:100%;
+    background:#a66cff;
+    transition:1.4s
+}
+
+/* SOCIAL */
+
+.socials{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px
+}
+
+.social{
+    padding:20px;
+    background:#ffffff05;
+    border:1px solid #ffffff0d;
+    border-radius:12px;
+    transition:.25s
+}
+
+.social:hover{
+    transform:translateY(-4px);
+    border-color:#a66cff55;
+    background:#a66cff09
+}
+
+.social small{
+    display:block;
+    color:#666;
+    margin-top:6px
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center
+}
+
+.contact p{
+    max-width:540px;
+    margin:-20px auto 28px;
+    color:#777;
+    line-height:1.7
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 8%;
+    border-top:1px solid #ffffff0c;
+    text-align:center;
+    color:#555;
+    font-size:12px
+}
+
+/* ANIMATION */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:.7s
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none
+}
+
+/* TABLET */
+
+@media(max-width:850px){
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        display:none;
+        flex-direction:column;
+        gap:0;
+        background:#07070adf;
+        backdrop-filter:blur(20px);
+        border-bottom:1px solid #ffffff0c
+    }
+
+    .nav-links.open{
+        display:flex
+    }
+
+    .nav-links a{
+        padding:17px 7%;
+        border-bottom:1px solid #ffffff08
+    }
+
+    .menu{
+        display:block
+    }
+
+    .hero{
+        padding-top:125px;
+        min-height:auto;
+        padding-bottom:100px;
+        align-items:flex-start
+    }
+
+    .hero-glow{
+        width:350px;
+        height:350px;
+        right:-130px;
+        top:20%
+    }
+
+    .orbit{
+        opacity:.3;
+        right:-100px;
+        top:30%
+    }
+
+    .about,
+    .github-box,
+    .gaming{
+        grid-template-columns:1fr
+    }
+
+    .projects{
+        grid-template-columns:1fr 1fr
+    }
+
+    .socials{
+        grid-template-columns:1fr 1fr
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:550px){
+
+    nav{
+        height:64px;
+        padding:0 6%
+    }
+
+    .logo{
+        font-size:22px
+    }
+
+    .hero{
+        padding:105px 6% 80px;
+        min-height:auto
+    }
+
+    .status{
+        margin-bottom:22px
+    }
+
+    .hero h1{
+        font-size:58px;
+        letter-spacing:-4px;
+        line-height:.92
+    }
+
+    .typing{
+        margin-top:22px;
+        font-size:18px
+    }
+
+    .hero-text{
+        font-size:15px;
+        line-height:1.75
+    }
+
+    .hero-glow{
+        width:300px;
+        height:300px;
+        right:-150px;
+        top:15%
+    }
+
+    .orbit{
+        display:none
+    }
+
+    section{
+        padding:70px 6%
+    }
+
+    .title{
+        font-size:34px;
+        margin-bottom:28px
+    }
+
+    .about,
+    .github-box,
+    .gaming,
+    .projects{
+        grid-template-columns:1fr
+    }
+
+    .stats{
+        grid-template-columns:1fr
+    }
+
+    .github-stats{
+        grid-template-columns:repeat(3,1fr)
+    }
+
+    .socials{
+        grid-template-columns:1fr
+    }
+
+    .card{
+        padding:22px
+    }
+
+    .buttons .btn{
+        width:100%;
+        text-align:center
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<a class="logo" href="#">AMX<span>.</span></a>
+
+<div class="nav-links" id="navLinks">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#github">GitHub</a>
+<a href="#gaming">Gaming</a>
+<a href="#contact">Contact</a>
+</div>
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content reveal">
+
+<div class="status">
+<i class="status-dot"></i>
+Available for new projects
+</div>
+
+<h1>
+I'm <span>AMX</span><br>
+Appu.
+</h1>
+
+<div class="typing">
+<span id="typing"></span><b>|</b>
+</div>
+
+<p class="hero-text">
+Gamer. HTML developer. Creator.
+I build interactive websites, experiment with APIs
+and turn ideas into digital experiences.
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn">
+Explore My Work
+</a>
+
+<a href="#contact" class="btn secondary">
+Connect With Me
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-glow"></div>
+<div class="orbit"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="label reveal">01 / About</div>
+
+<h2 class="title reveal">
+Who is <span>AMX?</span>
+</h2>
+
+<div class="about">
+
+<div class="card reveal">
+
+<p class="about-text">
+
+I'm <strong>AMX Appu</strong>, a gamer and HTML developer
+who enjoys creating things for the web.
+
+<br><br>
+
+I love building websites and browser apps using
+HTML, CSS and JavaScript. I also enjoy experimenting
+with APIs, designs and new ideas.
+
+<br><br>
+
+When I'm not coding, you'll probably find me gaming
+or creating content.
+
+</p>
+
+<div class="skills">
+<span class="skill">HTML5</span>
+<span class="skill">CSS3</span>
+<span class="skill">JavaScript</span>
+<span class="skill">APIs</span>
+<span class="skill">GitHub</span>
+<span class="skill">Vercel</span>
+</div>
+
+</div>
+
+
+<div class="card reveal">
+
+<h3>My Mindset</h3>
+
+<p class="about-text" style="margin-top:15px">
+
+Learn something.
+Build something.
+Break something.
+Fix it.
+Build it better.
+
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<strong>∞</strong>
+<small>Ideas</small>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<small>Curiosity</small>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<small>Passion</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="label reveal">02 / Projects</div>
+
+<h2 class="title reveal">
+Things I've <span>built.</span>
+</h2>
+
+<div class="projects">
+
+<div class="card project reveal">
+
+<div>
+<span class="project-number">PROJECT 01</span>
+
+<div class="project-icon">&lt;/&gt;</div>
+
+<h3>Web Applications</h3>
+
+<p>
+Interactive browser applications created using
+HTML, CSS and JavaScript.
+</p>
+</div>
+
+<a class="project-link" href="https://github.com/saran-jith" target="_blank">
+Explore on GitHub →
+</a>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div>
+<span class="project-number">PROJECT 02</span>
+
+<div class="project-icon">⚡</div>
+
+<h3>API Projects</h3>
+
+<p>
+Dynamic websites that connect APIs with clean
+and responsive interfaces.
+</p>
+</div>
+
+<a class="project-link" href="https://github.com/saran-jith" target="_blank">
+View source →
+</a>
+
+</div>
+
+
+<div class="card project reveal">
+
+<div>
+<span class="project-number">PROJECT 03</span>
+
+<div class="project-icon">◈</div>
+
+<h3>Gaming Projects</h3>
+
+<p>
+Creative experiments inspired by gaming,
+technology and digital culture.
+</p>
+</div>
+
+<a class="project-link" href="#gaming">
+Enter gaming zone →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GITHUB -->
+
+<section id="github">
+
+<div class="label reveal">03 / GitHub</div>
+
+<h2 class="title reveal">
+My <span>code.</span>
+</h2>
+
+<div class="github-box">
+
+<div class="card reveal">
+
+<div class="github-profile">
+
+<img id="githubAvatar"
+class="github-avatar"
+src="https://github.com/saran-jith.png"
+alt="GitHub avatar">
+
+<div>
+
+<h3 id="githubName" class="github-name">
+AMX Appu
+</h3>
+
+<p class="github-user">
+@saran-jith
+</p>
+
+</div>
+
+</div>
+
+<p id="githubBio" class="github-bio">
+Loading GitHub profile...
+</p>
+
+<div class="github-stats">
+
+<div class="github-stat">
+<b id="repos">-</b>
+<span>Repositories</span>
+</div>
+
+<div class="github-stat">
+<b id="followers">-</b>
+<span>Followers</span>
+</div>
+
+<div class="github-stat">
+<b id="following">-</b>
+<span>Following</span>
+</div>
+
+</div>
+
+<br>
+
+<a
+class="btn"
+href="https://github.com/saran-jith"
+target="_blank">
+Visit GitHub
+</a>
+
+</div>
+
+
+<div class="card reveal">
+
+<h3>Latest Repositories</h3>
+
+<div id="repoList">
+<p style="color:#666;margin-top:20px">
+Loading repositories...
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GAMING -->
+
+<section id="gaming">
+
+<div class="label reveal">04 / Gaming</div>
+
+<h2 class="title reveal">
+Beyond <span>coding.</span>
+</h2>
+
+<div class="gaming">
+
+<div class="card reveal">
+
+<div class="player">
+
+<div class="avatar">A</div>
+
+<div>
+<h3>AMX Appu</h3>
+<p>Gamer × Developer</p>
+</div>
+
+</div>
+
+
+<div class="bar">
+
+<div class="bar-head">
+<span>HTML</span>
+<span>95%</span>
+</div>
+
+<div class="track">
+<div class="fill" data-width="95%"></div>
+</div>
+
+</div>
+
+
+<div class="bar">
+
+<div class="bar-head">
+<span>CSS</span>
+<span>90%</span>
+</div>
+
+<div class="track">
+<div class="fill" data-width="90%"></div>
+</div>
+
+</div>
+
+
+<div class="bar">
+
+<div class="bar-head">
+<span>JavaScript</span>
+<span>80%</span>
+</div>
+
+<div class="track">
+<div class="fill" data-width="80%"></div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card reveal">
+
+<h3>PLAYER MODE</h3>
+
+<p class="about-text" style="margin-top:18px">
+
+Coding is my creative mode.
+
+<br><br>
+
+Gaming is my recharge mode.
+
+<br><br>
+
+Both are about experimenting, solving problems
+and improving every time.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<div class="label reveal">05 / Connect</div>
+
+<h2 class="title reveal">
+Find me <span>online.</span>
+</h2>
+
+<p class="reveal">
+Follow my content, gaming journey and future projects.
+</p>
+
+<div class="socials reveal">
+
+<a
+class="social"
+href="https://github.com/saran-jith"
+target="_blank">
+
+<b>GitHub</b>
+
+<small>@saran-jith</small>
+
+</a>
+
+
+<a
+class="social"
+href="https://youtube.com/@amxappuyt?si=WSfUYVUs-D_1nZvx"
+target="_blank">
+
+<b>YouTube</b>
+
+<small>@amxappuyt</small>
+
+</a>
+
+
+<a
+class="social"
+href="https://www.instagram.com/amx_appu_yt_?stkn=dTJwcDVnYWhzMTh4"
+target="_blank">
+
+<b>Instagram</b>
+
+<small>@amx_appu_yt_</small>
+
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+AMX APPU · GAMER × HTML DEVELOPER · 2026
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+const navLinks=document.getElementById("navLinks");
+
+function toggleMenu(){
+    navLinks.classList.toggle("open");
+}
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.onclick=()=>navLinks.classList.remove("open");
+});
+
+
+/* TYPING */
+
+const words=[
+    "HTML Developer",
+    "Web Creator",
+    "Gamer",
+    "Creative Builder"
+];
+
+let word=0;
+let letter=0;
+let deleting=false;
+
+function type(){
+
+    const current=words[word];
+
+    document.getElementById("typing").textContent=
+        current.substring(0,letter);
+
+    if(!deleting){
+
+        letter++;
+
+        if(letter>current.length){
+
+            deleting=true;
+
+            setTimeout(type,1000);
+
+            return;
+        }
+
+    }else{
+
+        letter--;
+
+        if(letter<0){
+
+            deleting=false;
+            letter=0;
+            word=(word+1)%words.length;
+
+        }
+    }
+
+    setTimeout(type,deleting?45:85);
+}
+
+type();
+
+
+/* SCROLL ANIMATIONS */
+
+const observer=new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+        if(!entry.isIntersecting)return;
+
+        entry.target.classList.add("show");
+
+        entry.target
+        .querySelectorAll(".fill")
+        .forEach(bar=>{
+            bar.style.width=bar.dataset.width;
+        });
+
+    });
+
+},{threshold:.12});
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
+
+
+/* GITHUB */
+
+async function loadGitHub(){
+
+    try{
+
+        const user=await fetch(
+            "https://api.github.com/users/saran-jith"
+        ).then(r=>r.json());
+
+        document.getElementById("githubName").textContent=
+            user.name||"AMX Appu";
+
+        document.getElementById("githubBio").textContent=
+            user.bio||"HTML developer and creator.";
+
+        document.getElementById("githubAvatar").src=
+            user.avatar_url;
+
+        document.getElementById("repos").textContent=
+            user.public_repos;
+
+        document.getElementById("followers").textContent=
+            user.followers;
+
+        document.getElementById("following").textContent=
+            user.following;
+
+
+        const repos=await fetch(
+            "https://api.github.com/users/saran-jith/repos?sort=updated&per_page=3"
+        ).then(r=>r.json());
+
+        const list=document.getElementById("repoList");
+
+        if(!repos.length){
+
+            list.innerHTML=
+                "<p style='color:#666;margin-top:20px'>No public repositories found.</p>";
+
+            return;
+        }
+
+        list.innerHTML=repos.map(repo=>`
+
+            <a
+            class="repo"
+            href="${repo.html_url}"
+            target="_blank">
+
+                <h3>${repo.name}</h3>
+
+                <p>
+                ${repo.description||"No description available."}
+                </p>
+
+                <small>
+                ${repo.language||"Code"} · ★ ${repo.stargazers_count}
+                </small>
+
+            </a>
+
+        `).join("");
+
+    }catch(error){
+
+        document.getElementById("githubBio").textContent=
+            "Visit my GitHub profile to see my projects.";
+
+        document.getElementById("repoList").innerHTML=`
+            <a
+            class="repo"
+            href="https://github.com/saran-jith"
+            target="_blank">
+
+            <h3>View my repositories →</h3>
+
+            <p>
+            GitHub could not be loaded right now.
+            </p>
+
+            </a>
+        `;
+    }
+}
+
+loadGitHub();
+
+</script>
+
+</body>
+</html>
